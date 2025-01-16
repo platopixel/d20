@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dantwwl7xywvw"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_4qxhc"]
+[ext_resource type="PackedScene" uid="uid://cryaldygx48fa" path="res://scenes/game_table.tscn" id="2_ry8qo"]
+[ext_resource type="Script" path="res://gui.gd" id="3_m681d"]
+[ext_resource type="Script" path="res://scenes/dice/die_face.gd" id="4_fkocv"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_4qxhc")
+
+[node name="GameTable" parent="." instance=ExtResource("2_ry8qo")]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_m681d")
+
+[node name="RollButton" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 448.0
+offset_right = 680.0
+offset_bottom = 517.0
+text = "Roll!"
+
+[node name="DieFace" type="Node" parent="."]
+script = ExtResource("4_fkocv")
+
+[connection signal="roll" from="GUI" to="." method="_on_roll"]
+[connection signal="pressed" from="GUI/RollButton" to="GUI" method="_on_roll_button_pressed"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cryaldygx48fa"]
+
+[ext_resource type="Texture2D" uid="uid://c8ibiuj5sx7qk" path="res://assets/game_table.jpg" id="1_7pmjq"]
+[ext_resource type="PackedScene" uid="uid://c0qf0rsddr7kl" path="res://scenes/dice/die.tscn" id="2_dd2ps"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vbntx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q263g"]
+size = Vector2(1280, 475)
+
+[node name="GameTable" type="Node2D"]
+material = SubResource("CanvasItemMaterial_vbntx")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_7pmjq")
+centered = false
+
+[node name="DieDropArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DieDropArea"]
+position = Vector2(640, 237)
+shape = SubResource("RectangleShape2D_q263g")
+
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -226.0
+offset_top = -118.0
+offset_right = 224.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Die" parent="BattleUI/Hand" instance=ExtResource("2_dd2ps")]
+layout_mode = 2
+
+[node name="Die2" parent="BattleUI/Hand" instance=ExtResource("2_dd2ps")]
+layout_mode = 2
+
+[node name="Die3" parent="BattleUI/Hand" instance=ExtResource("2_dd2ps")]
+layout_mode = 2

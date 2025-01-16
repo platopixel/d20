@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0qf0rsddr7kl"]
+
+[ext_resource type="Script" path="res://scenes/dice/die.gd" id="1_v0k3q"]
+[ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="1_yhqcx"]
+[ext_resource type="Texture2D" uid="uid://bd8npulnujbco" path="res://assets/blankdie.png" id="2_btjnc"]
+[ext_resource type="Script" path="res://scenes/dice/die_state_machine.gd" id="4_fy54y"]
+[ext_resource type="Script" path="res://scenes/dice/die_states/die_base_state.gd" id="5_rkj7l"]
+[ext_resource type="Script" path="res://scenes/dice/die_states/die_clicked_state.gd" id="6_7jj28"]
+[ext_resource type="Script" path="res://scenes/dice/die_states/die_dragging_state.gd" id="7_8h68l"]
+[ext_resource type="Script" path="res://scenes/dice/die_states/die_released_state.gd" id="8_2bye2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_agm8h"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci871"]
+size = Vector2(63, 64)
+
+[node name="Die" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+theme = ExtResource("1_yhqcx")
+script = ExtResource("1_v0k3q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_btjnc")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "20"
+label_settings = SubResource("LabelSettings_agm8h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DebugColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.126988, 0.556608, 0.271771, 1)
+
+[node name="DebugLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "state"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DropPointDetector" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+position = Vector2(32.5, 33)
+shape = SubResource("RectangleShape2D_ci871")
+
+[node name="DieStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_fy54y")
+initial_state = NodePath("DieBaseState")
+
+[node name="DieBaseState" type="Node" parent="DieStateMachine"]
+script = ExtResource("5_rkj7l")
+
+[node name="DieClickedState" type="Node" parent="DieStateMachine"]
+script = ExtResource("6_7jj28")
+state = 1
+
+[node name="DieDraggingState" type="Node" parent="DieStateMachine"]
+script = ExtResource("7_8h68l")
+state = 2
+
+[node name="DieReleasedState" type="Node" parent="DieStateMachine"]
+script = ExtResource("8_2bye2")
+state = 4
