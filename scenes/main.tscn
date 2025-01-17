@@ -12,17 +12,29 @@ script = ExtResource("1_4qxhc")
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("3_m681d")
 
 [node name="RollButton" type="Button" parent="GUI"]
-layout_mode = 0
-offset_left = 463.0
-offset_top = 448.0
-offset_right = 680.0
-offset_bottom = 517.0
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = 115.0
+offset_right = 107.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Roll!"
 
 [node name="DieFace" type="Node" parent="."]

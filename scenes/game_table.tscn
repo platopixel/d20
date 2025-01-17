@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cryaldygx48fa"]
+[gd_scene load_steps=6 format=3 uid="uid://cryaldygx48fa"]
 
 [ext_resource type="Texture2D" uid="uid://c8ibiuj5sx7qk" path="res://assets/game_table.jpg" id="1_7pmjq"]
+[ext_resource type="Script" path="res://scenes/ui/hand.gd" id="2_cmgux"]
 [ext_resource type="PackedScene" uid="uid://c0qf0rsddr7kl" path="res://scenes/dice/die.tscn" id="2_dd2ps"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vbntx"]
@@ -36,6 +37,8 @@ offset_right = 224.0
 offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 1
+script = ExtResource("2_cmgux")
 
 [node name="Die" parent="BattleUI/Hand" instance=ExtResource("2_dd2ps")]
 layout_mode = 2

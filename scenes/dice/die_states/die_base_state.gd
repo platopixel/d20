@@ -1,11 +1,14 @@
 extends DieState
 
+@export var die: Die
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func enter() -> void:
+	die.reparent_requested.emit(die)
+	die.debugColor.color = Color.WEB_GREEN
+	die.debugLabel.text = "BASE"
+	die.pivot_offset = Vector2.ZERO
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func on_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_mouse"):
+		die.pivot_offset = die.get_global_mouse_position() - die.global_position
+		transition_requested.emit(self, DieState.State.CLICKED)

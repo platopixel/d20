@@ -1,17 +1,21 @@
 extends DieState
 
-var die: Die
+@export var die: Die
+
+var played: bool
 
 func enter() -> void:
-	if not die.is_note_ready():
-		await die.ready
+	die.debugColor.color = Color.DARK_VIOLET
+	die.debugLabel.text = "RELEASED"
 
-	die.reparent_requested.emit(die)
-	die.debugColor.color = Color.WEB_GREEN
-	die.debugState.text = "BASE"
-	die.pivot_offset = Vector2.ZERO
+	played = false
 
-func on_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_mouse"):
-		die.pivot_offset = die.get_global_mouse_position() - die.global_position
-		transition_requested.emit(self, DieState.State.CLICKED)
+	if not die.targets.is_empty():
+		played = true
+		print("play die for target(s) ", die.targets)
+
+func on_input(_event: InputEvent) -> void:
+	if played:
+		return
+
+	transition_requested.emit(self, DieState.State.BASE)

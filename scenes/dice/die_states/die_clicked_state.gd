@@ -1,10 +1,10 @@
 extends DieState
 
-var die: Die
+@export var die: Die
 
 func enter() -> void:
 	die.debugColor.color = Color.ORANGE
-	die.debugState.text = "CLICKED"
+	die.debugLabel.text = "CLICKED"
 	die.drop_point_detector.monitoring = true
 
 func on_input(event: InputEvent) -> void:

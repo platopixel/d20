@@ -24,13 +24,11 @@ func on_gui_input(event: InputEvent) -> void:
 	if current_state:
 		current_state.on_gui_input(event)
 
-func on_mouse_entered(event: InputEvent) -> void:
-	if current_state:
-		current_state.on_input(event)
+func on_mouse_entered() -> void:
+	pass
 
-func on_mouse_exited(event: InputEvent) -> void:
-	if current_state:
-		current_state.on_gui_input(event)
+func on_mouse_exited() -> void:
+	pass
 
 func _on_transition_requested(from: DieState, to: DieState.State) -> void:
 	if from != current_state:
