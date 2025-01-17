@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cryaldygx48fa"]
+[gd_scene load_steps=7 format=3 uid="uid://cryaldygx48fa"]
 
 [ext_resource type="Texture2D" uid="uid://c8ibiuj5sx7qk" path="res://assets/game_table.jpg" id="1_7pmjq"]
+[ext_resource type="PackedScene" uid="uid://crlsfq4k8cwld" path="res://scenes/enemy.tscn" id="2_4f4xb"]
 [ext_resource type="Script" path="res://scenes/ui/hand.gd" id="2_cmgux"]
 [ext_resource type="PackedScene" uid="uid://c0qf0rsddr7kl" path="res://scenes/dice/die.tscn" id="2_dd2ps"]
 
@@ -22,6 +23,10 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DieDropArea"]
 position = Vector2(640, 237)
 shape = SubResource("RectangleShape2D_q263g")
+
+[node name="Enemy" parent="." instance=ExtResource("2_4f4xb")]
+position = Vector2(534, 0)
+scale = Vector2(0.75, 0.75)
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 

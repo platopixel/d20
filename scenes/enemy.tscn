@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://crlsfq4k8cwld"]
+
+[ext_resource type="Texture2D" uid="uid://bu4qn0lskhf7f" path="res://assets/enemy.png" id="1_clr3h"]
+[ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="2_8dt0m"]
+[ext_resource type="Texture2D" uid="uid://be7il2ghok072" path="res://assets/bar_round_large.png" id="3_1nq76"]
+
+[node name="Enemy" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_clr3h")
+centered = false
+
+[node name="HP" type="Control" parent="."]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 250.0
+offset_right = 240.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_8dt0m")
+
+[node name="TextureRect" type="TextureRect" parent="HP"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_1nq76")
+
+[node name="Label" type="Label" parent="HP"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.5
+offset_top = -8.5
+offset_right = 21.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "10/10"
+horizontal_alignment = 1
+vertical_alignment = 1

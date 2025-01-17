@@ -2,7 +2,7 @@ extends DieState
 
 @export var die: Die
 
-const DRAG_MINIMUM_THRESHOLD := 0.5
+const DRAG_MINIMUM_THRESHOLD := 0.3
 
 var minimum_drag_time_elapsed := false
 
