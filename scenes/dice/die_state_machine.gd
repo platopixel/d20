@@ -1,9 +1,10 @@
-class_name DieStatMachine extends Node
+class_name DieStateMachine extends Node
 
 @export var initial_state: DieState
 
 var current_state: DieState
 var states := {}
+
 
 func init(die: Die) -> void:
 	for child in get_children():
@@ -16,19 +17,24 @@ func init(die: Die) -> void:
 		initial_state.enter()
 		current_state = initial_state
 
+
 func on_input(event: InputEvent) -> void:
 	if current_state:
 		current_state.on_input(event)
+
 
 func on_gui_input(event: InputEvent) -> void:
 	if current_state:
 		current_state.on_gui_input(event)
 
+
 func on_mouse_entered() -> void:
 	pass
 
+
 func on_mouse_exited() -> void:
 	pass
+
 
 func _on_transition_requested(from: DieState, to: DieState.State) -> void:
 	if from != current_state:

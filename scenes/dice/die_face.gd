@@ -1,4 +1,4 @@
-class_name Die_Face extends Node
+class_name DieFace extends Node
 
 @export var number: int
 

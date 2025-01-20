@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DieModel" load_steps=4 format=3 uid="uid://dgrvgsgs3gp5c"]
+
+[ext_resource type="Script" path="res://custom_resources/die_model.gd" id="1_b5343"]
+[ext_resource type="Shader" path="res://shaders/block.gdshader" id="2_u4hbb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hkkbe"]
+shader = ExtResource("2_u4hbb")
+
+[resource]
+script = ExtResource("1_b5343")
+id = "block"
+type = 1
+target = 0
+cost = 1
+num_faces = 20
+shader = SubResource("ShaderMaterial_hkkbe")
+tooltip_text = ""

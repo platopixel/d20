@@ -3,7 +3,7 @@ extends Node2D
 const DIE_SCENE: PackedScene = preload("res://scenes/dice/die.tscn")
 
 var die: Control
-var rolled_number: Die_Face
+var rolled_number: DieFace
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

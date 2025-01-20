@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cryaldygx48fa"]
+[gd_scene load_steps=12 format=3 uid="uid://cryaldygx48fa"]
 
-[ext_resource type="Texture2D" uid="uid://c8ibiuj5sx7qk" path="res://assets/game_table.jpg" id="1_7pmjq"]
-[ext_resource type="PackedScene" uid="uid://crlsfq4k8cwld" path="res://scenes/enemy.tscn" id="2_4f4xb"]
+[ext_resource type="Texture2D" uid="uid://cs4kwn4pu8kvb" path="res://assets/background.png" id="1_oh0lp"]
+[ext_resource type="PackedScene" uid="uid://crlsfq4k8cwld" path="res://enemies/enemy.tscn" id="2_4f4xb"]
 [ext_resource type="Script" path="res://scenes/ui/hand.gd" id="2_cmgux"]
 [ext_resource type="PackedScene" uid="uid://c0qf0rsddr7kl" path="res://scenes/dice/die.tscn" id="2_dd2ps"]
+[ext_resource type="Resource" uid="uid://c0ld3vy2qffvs" path="res://enemies/spy/test_enemy.tres" id="3_w0t0n"]
+[ext_resource type="Resource" uid="uid://b2j7ush2hjsqo" path="res://dice/attack.tres" id="5_212t4"]
+[ext_resource type="Resource" uid="uid://dgrvgsgs3gp5c" path="res://dice/block.tres" id="6_7ie2d"]
+[ext_resource type="PackedScene" uid="uid://7h0jvdjn6qic" path="res://scenes/ui/player.tscn" id="7_txw2l"]
+[ext_resource type="Resource" uid="uid://bo2k5hhiu37r4" path="res://characters/player/player.tres" id="8_w6sov"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vbntx"]
 
@@ -14,7 +19,7 @@ size = Vector2(1280, 475)
 material = SubResource("CanvasItemMaterial_vbntx")
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("1_7pmjq")
+texture = ExtResource("1_oh0lp")
 centered = false
 
 [node name="DieDropArea" type="Area2D" parent="."]
@@ -23,10 +28,12 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DieDropArea"]
 position = Vector2(640, 237)
 shape = SubResource("RectangleShape2D_q263g")
+debug_color = Color(0, 0.6, 0.701961, 0.176471)
 
 [node name="Enemy" parent="." instance=ExtResource("2_4f4xb")]
-position = Vector2(534, 0)
+position = Vector2(57, 19)
 scale = Vector2(0.75, 0.75)
+stats = ExtResource("3_w0t0n")
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 
@@ -47,9 +54,24 @@ script = ExtResource("2_cmgux")
 
 [node name="Die" parent="BattleUI/Hand" instance=ExtResource("2_dd2ps")]
 layout_mode = 2
+die = ExtResource("5_212t4")
 
 [node name="Die2" parent="BattleUI/Hand" instance=ExtResource("2_dd2ps")]
 layout_mode = 2
+die = ExtResource("5_212t4")
 
 [node name="Die3" parent="BattleUI/Hand" instance=ExtResource("2_dd2ps")]
 layout_mode = 2
+die = ExtResource("6_7ie2d")
+
+[node name="Die4" parent="BattleUI/Hand" instance=ExtResource("2_dd2ps")]
+layout_mode = 2
+die = ExtResource("6_7ie2d")
+
+[node name="Die5" parent="BattleUI/Hand" instance=ExtResource("2_dd2ps")]
+layout_mode = 2
+die = ExtResource("6_7ie2d")
+
+[node name="Player" parent="." instance=ExtResource("7_txw2l")]
+position = Vector2(645, 526)
+stats = ExtResource("8_w6sov")

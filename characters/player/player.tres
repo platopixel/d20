@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://bo2k5hhiu37r4"]
+
+[ext_resource type="Script" path="res://custom_resources/player_stats.gd" id="1_upg5w"]
+[ext_resource type="Resource" uid="uid://6bxlovay4mq" path="res://characters/player/starting_deck.tres" id="2_adacb"]
+
+[resource]
+script = ExtResource("1_upg5w")
+starting_deck = ExtResource("2_adacb")
+dice_per_turn = 4
+max_energy = 3
+max_hp = 25

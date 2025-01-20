@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DicePile" load_steps=5 format=3 uid="uid://6bxlovay4mq"]
+
+[ext_resource type="Script" path="res://custom_resources/die_model.gd" id="1_ed2vd"]
+[ext_resource type="Script" path="res://custom_resources/dice_pile.gd" id="2_dmaxx"]
+[ext_resource type="Resource" uid="uid://b2j7ush2hjsqo" path="res://dice/attack.tres" id="2_kjx1g"]
+[ext_resource type="Resource" uid="uid://dgrvgsgs3gp5c" path="res://dice/block.tres" id="3_ub0r0"]
+
+[resource]
+script = ExtResource("2_dmaxx")
+dice = Array[ExtResource("1_ed2vd")]([ExtResource("2_kjx1g"), ExtResource("2_kjx1g"), ExtResource("2_kjx1g"), ExtResource("2_kjx1g"), ExtResource("2_kjx1g"), ExtResource("3_ub0r0"), ExtResource("3_ub0r0"), ExtResource("3_ub0r0"), ExtResource("3_ub0r0"), ExtResource("3_ub0r0")])
