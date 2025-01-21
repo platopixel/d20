@@ -5,7 +5,7 @@ const DIE_FACE = preload("res://scenes/dice/die_face.gd")
 signal reparent_requested(which_die: Die)
 
 @export var die: DieModel : set  = _set_die
-@export var player_stats: PlayerStats
+@export var player_stats: PlayerStats : set = _set_player_stats
 
 @onready var debugColor: ColorRect = $DebugColor
 @onready var debugLabel: Label = $DebugLabel
@@ -13,13 +13,18 @@ signal reparent_requested(which_die: Die)
 @onready var die_state_machine: DieStateMachine = $DieStateMachine as DieStateMachine
 @onready var targets: Array[Node] = []
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var original_index := self.get_index()
 
 var faces: Array[DIE_FACE] = []
 var current_roll: DieFace
+var playable := true : set = _set_playable
+var disabled := false # dice are set to disabled while another die is being played
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Events.die_drag_started.connect(_on_die_drag_started)
+	Events.die_drag_started.connect(_on_die_drag_ended)
 	die_state_machine.init(self)
 
 
@@ -52,13 +57,41 @@ func _set_die(value: DieModel) -> void:
 	sprite_2d.material = die.shader
 
 
+func _set_playable(value: bool) -> void:
+	playable = value
+	if not playable:
+		sprite_2d.modulate = Color(1, 1, 1, 0.5)
+	else:
+		sprite_2d.modulate = Color(1, 1, 1, 1)
+
+
+func _set_player_stats(value: PlayerStats) -> void:
+	player_stats = value
+	player_stats.stats_changed.connect(_on_player_stats_changed)
+
+
+func _on_die_drag_started(used_die: Die) -> void:
+	if used_die == self:
+		return
+
+	disabled = true
+
+
+func _on_die_drag_ended(_die: Die) -> void:
+	disabled = false
+	self.playable = player_stats.can_play_die(die)
+
+
+func _on_player_stats_changed() -> void:
+	self.playable = player_stats.can_play_die(die)
+
+
 func play() -> void:
 	if not die:
 		return
 
 	roll()
 	die.play(targets, player_stats, current_roll)
-	# queue_free()
 
 
 func roll() -> void:

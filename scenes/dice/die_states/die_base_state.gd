@@ -8,7 +8,23 @@ func enter() -> void:
 	die.debugLabel.text = "BASE"
 	die.pivot_offset = Vector2.ZERO
 
+
 func on_gui_input(event: InputEvent) -> void:
+	if not die.playable or die.disabled:
+		return
+
 	if event.is_action_pressed("left_mouse"):
 		die.pivot_offset = die.get_global_mouse_position() - die.global_position
 		transition_requested.emit(self, DieState.State.CLICKED)
+
+
+func on_mouse_entered() -> void:
+	if not die.playable or die.disabled:
+		return
+	# todo: add visual indicator that the die is being hovered
+
+
+func on_mouse_exited() -> void:
+	if not die.playable or die.disabled:
+		return
+	# todo: remove visual indicator that the die is being hovered

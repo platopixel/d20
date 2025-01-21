@@ -13,10 +13,16 @@ func enter() -> void:
 
 	die.debugColor.color = Color.NAVY_BLUE
 	die.debugLabel.text = "DRAGGING"
+	Events.die_drag_started.emit(die)
 
 	minimum_drag_time_elapsed = false
 	var threshold_timer := get_tree().create_timer(DRAG_MINIMUM_THRESHOLD, false)
 	threshold_timer.timeout.connect(func(): minimum_drag_time_elapsed = true)
+
+
+func exit() -> void:
+	Events.die_drag_ended.emit(die)
+
 
 func on_input(event: InputEvent) -> void:
 	var mouse_motion := event is InputEventMouseMotion
@@ -27,9 +33,7 @@ func on_input(event: InputEvent) -> void:
 		die.global_position = die.get_global_mouse_position() - die.pivot_offset
 
 	if cancel:
-		print('canceling')
 		transition_requested.emit(self, DieState.State.BASE)
 	elif minimum_drag_time_elapsed and confirm:
-		print('releasing')
 		get_viewport().set_input_as_handled()
 		transition_requested.emit(self, DieState.State.RELEASED)

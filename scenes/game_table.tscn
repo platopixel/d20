@@ -54,6 +54,7 @@ offset_right = 224.0
 offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 15
 alignment = 1
 script = ExtResource("2_cmgux")
 
@@ -69,7 +70,7 @@ player_stats = ExtResource("8_w6sov")
 
 [node name="Die3" parent="BattleUI/Hand" instance=ExtResource("2_dd2ps")]
 layout_mode = 2
-die = ExtResource("6_7ie2d")
+die = ExtResource("5_212t4")
 player_stats = ExtResource("8_w6sov")
 
 [node name="Die4" parent="BattleUI/Hand" instance=ExtResource("2_dd2ps")]

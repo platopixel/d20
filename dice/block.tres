@@ -9,7 +9,7 @@ shader = ExtResource("2_u4hbb")
 [resource]
 script = ExtResource("1_dcyyl")
 id = "block"
-type = 1
+type = 0
 target = 0
 cost = 1
 num_faces = 20

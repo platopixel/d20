@@ -19,7 +19,7 @@ func reset_energy() -> void:
 	self.energy = max_energy
 
 
-func can_play_die(die: Die) -> bool:
+func can_play_die(die: DieModel) -> bool:
 	return energy >= die.cost
 
 

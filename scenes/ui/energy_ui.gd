@@ -5,11 +5,6 @@ class_name EnergyUI extends Panel
 @onready var energy_label: Label = $EnergyLabel
 
 
-func _ready() -> void:
-	await get_tree().create_timer(3).timeout
-	player_stats.energy = 2
-
-
 func _set_player_stats(value: PlayerStats) -> void:
 	player_stats = value
 
