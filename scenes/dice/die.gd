@@ -5,6 +5,7 @@ const DIE_FACE = preload("res://scenes/dice/die_face.gd")
 signal reparent_requested(which_die: Die)
 
 @export var die: DieModel : set  = _set_die
+@export var player_stats: PlayerStats
 
 @onready var debugColor: ColorRect = $DebugColor
 @onready var debugLabel: Label = $DebugLabel
@@ -49,6 +50,15 @@ func _set_die(value: DieModel) -> void:
 		faces.append(instance)
 
 	sprite_2d.material = die.shader
+
+
+func play() -> void:
+	if not die:
+		return
+
+	roll()
+	die.play(targets, player_stats, current_roll)
+	# queue_free()
 
 
 func roll() -> void:

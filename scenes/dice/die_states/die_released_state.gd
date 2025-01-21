@@ -11,7 +11,7 @@ func enter() -> void:
 	played = false
 
 	if not die.targets.is_empty():
-		die.roll()
+		die.play()
 		played = true
 		print("play die for target(s) ", die.targets)
 

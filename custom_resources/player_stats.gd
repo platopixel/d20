@@ -9,6 +9,7 @@ var deck: DicePile
 var discard: DicePile
 var draw_pile: DicePile
 
+
 func set_energy(value: int) -> void:
 	energy = value
 	stats_changed.emit()

@@ -87,6 +87,6 @@ vertical_alignment = 1
 
 [node name="StatsUI" parent="." instance=ExtResource("7_r300c")]
 offset_left = 12.0
-offset_top = 262.0
+offset_top = 271.0
 offset_right = 212.0
-offset_bottom = 289.0
+offset_bottom = 298.0
