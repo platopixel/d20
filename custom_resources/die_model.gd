@@ -13,6 +13,7 @@ enum Target {SELF, ENEMY, EVERYONE}
 @export_group("Die Visuals")
 @export var shader: ShaderMaterial
 @export_multiline var tooltip_text: String
+@export var icon: Texture
 
 
 func is_enemy_targeted() -> bool:

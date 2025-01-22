@@ -7,6 +7,7 @@ func enter() -> void:
 	die.debugColor.color = Color.WEB_GREEN
 	die.debugLabel.text = "BASE"
 	die.pivot_offset = Vector2.ZERO
+	Events.tooltip_hide_requested.emit()
 
 
 func on_gui_input(event: InputEvent) -> void:
@@ -22,9 +23,11 @@ func on_mouse_entered() -> void:
 	if not die.playable or die.disabled:
 		return
 	# todo: add visual indicator that the die is being hovered
+	Events.die_tooltip_requested.emit(die.die.icon, die.die.tooltip_text)
 
 
 func on_mouse_exited() -> void:
 	if not die.playable or die.disabled:
 		return
 	# todo: remove visual indicator that the die is being hovered
+	Events.tooltip_hide_requested.emit()

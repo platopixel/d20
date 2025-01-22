@@ -13,7 +13,7 @@ func enter() -> void:
 	if not die.targets.is_empty():
 		die.play()
 		played = true
-		print("play die for target(s) ", die.targets)
+		Events.tooltip_hide_requested.emit()
 
 
 func on_input(_event: InputEvent) -> void:

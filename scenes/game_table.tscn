@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cryaldygx48fa"]
+[gd_scene load_steps=14 format=3 uid="uid://cryaldygx48fa"]
 
 [ext_resource type="Texture2D" uid="uid://cs4kwn4pu8kvb" path="res://assets/background.png" id="1_oh0lp"]
 [ext_resource type="PackedScene" uid="uid://crlsfq4k8cwld" path="res://enemies/enemy.tscn" id="2_4f4xb"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://7h0jvdjn6qic" path="res://scenes/ui/player.tscn" id="7_txw2l"]
 [ext_resource type="PackedScene" uid="uid://dr2o56k61bc2t" path="res://scenes/ui/energy_ui.tscn" id="8_g1wg8"]
 [ext_resource type="Resource" uid="uid://bo2k5hhiu37r4" path="res://characters/player/player.tres" id="8_w6sov"]
+[ext_resource type="PackedScene" uid="uid://dcn4hskvgsfw7" path="res://scenes/ui/tooltip.tscn" id="10_s1a8w"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vbntx"]
 
@@ -82,6 +83,10 @@ player_stats = ExtResource("8_w6sov")
 layout_mode = 2
 die = ExtResource("6_7ie2d")
 player_stats = ExtResource("8_w6sov")
+
+[node name="Tooltip" parent="BattleUI" instance=ExtResource("10_s1a8w")]
+offset_top = 18.0
+offset_bottom = 208.0
 
 [node name="EnergyUI" parent="." instance=ExtResource("8_g1wg8")]
 offset_left = 552.0
