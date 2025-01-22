@@ -24,7 +24,7 @@ var disabled := false # dice are set to disabled while another die is being play
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Events.die_drag_started.connect(_on_die_drag_started)
-	Events.die_drag_started.connect(_on_die_drag_ended)
+	Events.die_drag_ended.connect(_on_die_drag_ended)
 	die_state_machine.init(self)
 
 

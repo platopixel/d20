@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd4vhrh5g6fdr"]
+
+[ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="1_6r4p4"]
+[ext_resource type="Texture2D" uid="uid://cd8yentl5nhct" path="res://assets/health_bar.png" id="2_a7nor"]
+
+[node name="HealthUI" type="Panel"]
+offset_right = 201.0
+offset_bottom = 67.0
+theme = ExtResource("1_6r4p4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 67.0
+texture = ExtResource("2_a7nor")
+expand_mode = 1
+
+[node name="HPLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 2.0
+offset_right = 157.0
+offset_bottom = 34.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 28
+text = "50/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 38.0
+offset_right = 165.0
+offset_bottom = 64.0
+theme_override_colors/default_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_shadow_color = Color(0.70613, 0.391842, 0.415862, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]HEALTH[/center]"

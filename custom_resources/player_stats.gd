@@ -11,6 +11,7 @@ var draw_pile: DicePile
 
 
 func set_energy(value: int) -> void:
+	print('set starting energy:', value)
 	energy = value
 	stats_changed.emit()
 

@@ -2,7 +2,7 @@ class_name Stats extends Resource
 
 signal stats_changed
 
-@export var max_hp := 1
+@export var max_hp := 999
 @export var art: Texture
 
 var hp: int : set = set_hp

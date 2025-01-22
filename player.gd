@@ -6,7 +6,7 @@ class_name Player extends Node2D
 
 
 func set_player_stats(value: PlayerStats) -> void:
-	stats = value.create_instance()
+	stats = value
 
 	if not stats.stats_changed.is_connected(update_stats):
 		stats.stats_changed.connect(update_stats)

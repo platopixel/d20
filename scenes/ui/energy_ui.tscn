@@ -1,35 +1,49 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr2o56k61bc2t"]
+[gd_scene load_steps=5 format=3 uid="uid://dr2o56k61bc2t"]
 
 [ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="1_ei630"]
 [ext_resource type="Script" path="res://scenes/ui/energy_ui.gd" id="1_s3c3n"]
 [ext_resource type="Resource" uid="uid://bo2k5hhiu37r4" path="res://characters/player/player.tres" id="2_jik25"]
-[ext_resource type="Texture2D" uid="uid://nour4rq8rb3l" path="res://assets/green_circle.png" id="3_lnxi0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qokg"]
-bg_color = Color(0.6, 0.6, 0.6, 0.329412)
+[ext_resource type="Texture2D" uid="uid://di8yhncj3khd3" path="res://assets/energy_bar.png" id="4_oksul"]
 
 [node name="EnergyUI" type="Panel"]
-offset_right = 150.0
-offset_bottom = 32.0
+offset_right = 201.0
+offset_bottom = 67.0
 theme = ExtResource("1_ei630")
 script = ExtResource("1_s3c3n")
 player_stats = ExtResource("2_jik25")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 6.0
-offset_right = 34.0
-offset_bottom = 26.0
-texture = ExtResource("3_lnxi0")
+offset_right = 201.0
+offset_bottom = 67.0
+texture = ExtResource("4_oksul")
+stretch_mode = 4
 
 [node name="EnergyLabel" type="Label" parent="."]
 layout_mode = 0
-offset_right = 150.0
-offset_bottom = 32.0
+offset_left = 14.0
+offset_top = 3.0
+offset_right = 164.0
+offset_bottom = 35.0
 theme = ExtResource("1_ei630")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_5qokg")
 text = "3/3"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 161.0
+offset_bottom = 64.0
+theme_override_colors/default_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_shadow_color = Color(0.691803, 0.84585, 0.955869, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]ENERGY[/center]"
