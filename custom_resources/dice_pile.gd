@@ -8,7 +8,7 @@ func empty() -> bool:
 	return dice.is_empty()
 
 
-func draw_die() -> Die:
+func draw_die() -> DieModel:
 	var die = dice.pop_front()
 	dice_pile_size_changed.emit(dice.size())
 	return die

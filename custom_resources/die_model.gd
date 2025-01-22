@@ -39,9 +39,7 @@ func _get_targets(targets: Array[Node]) -> Array[Node]:
 
 func play(targets: Array[Node], player_stats: PlayerStats, roll) -> void:
 	Events.die_played.emit(self)
-	print('energy before: ', player_stats.energy)
 	player_stats.energy -= cost
-	print('energy after: ', player_stats.energy)
 
 	apply_effects(_get_targets(targets), roll)
 

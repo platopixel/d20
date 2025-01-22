@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cryaldygx48fa"]
+[gd_scene load_steps=15 format=3 uid="uid://cryaldygx48fa"]
 
 [ext_resource type="Texture2D" uid="uid://cs4kwn4pu8kvb" path="res://assets/background.png" id="1_oh0lp"]
 [ext_resource type="Script" path="res://scenes/game_table.gd" id="1_ue63g"]
@@ -12,9 +12,6 @@
 [ext_resource type="Resource" uid="uid://bo2k5hhiu37r4" path="res://characters/player/player.tres" id="8_w6sov"]
 [ext_resource type="PackedScene" uid="uid://dcn4hskvgsfw7" path="res://scenes/ui/tooltip.tscn" id="10_s1a8w"]
 [ext_resource type="PackedScene" uid="uid://dd4vhrh5g6fdr" path="res://scenes/ui/health_ui.tscn" id="12_12l0y"]
-[ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="13_mcw8m"]
-[ext_resource type="Texture2D" uid="uid://qr3e1g00ekdx" path="res://assets/button.png" id="14_3gqon"]
-[ext_resource type="Texture2D" uid="uid://d0mghxaoywpij" path="res://assets/button_pressed.png" id="15_dhnm8"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vbntx"]
 
@@ -86,30 +83,3 @@ offset_left = 1030.0
 offset_top = 525.0
 offset_right = 1231.0
 offset_bottom = 592.0
-
-[node name="EndTurnButton" type="TextureButton" parent="BattleUI"]
-unique_name_in_owner = true
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 37.0
-offset_top = -85.0
-offset_right = 229.0
-offset_bottom = -37.0
-grow_vertical = 0
-theme = ExtResource("13_mcw8m")
-texture_normal = ExtResource("14_3gqon")
-texture_pressed = ExtResource("15_dhnm8")
-
-[node name="Label" type="Label" parent="BattleUI/EndTurnButton"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 8.0
-offset_right = 183.0
-offset_bottom = 40.0
-theme_override_colors/font_color = Color(0.28485, 0.28485, 0.28485, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-text = "END TURN"
-horizontal_alignment = 1
-vertical_alignment = 1

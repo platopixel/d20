@@ -5,3 +5,8 @@
 [resource]
 default_font = ExtResource("1_5m2vc")
 default_font_size = 14
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null

@@ -8,3 +8,8 @@ signal die_aim_ended(die: Die)
 signal die_played(die: DieModel)
 signal die_tooltip_requested(die: DieModel)
 signal tooltip_hide_requested
+
+# Player-related events
+signal player_hand_drawn
+signal player_hand_discarded
+signal player_turn_ended
