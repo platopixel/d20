@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://crlsfq4k8cwld"]
+[gd_scene load_steps=12 format=3 uid="uid://crlsfq4k8cwld"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_c5pig"]
 [ext_resource type="Texture2D" uid="uid://bu4qn0lskhf7f" path="res://assets/enemy.png" id="1_clr3h"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://be7il2ghok072" path="res://assets/bar_round_large.png" id="3_1nq76"]
 [ext_resource type="Texture2D" uid="uid://dia7vd45pqw63" path="res://assets/duck.png" id="3_lecdm"]
 [ext_resource type="PackedScene" uid="uid://q1ohca522r4x" path="res://scenes/ui/stats_ui.tscn" id="7_r300c"]
+[ext_resource type="PackedScene" uid="uid://43yimxl0bwq3" path="res://scenes/ui/intent_ui.tscn" id="8_b8os3"]
 
 [sub_resource type="Gradient" id="Gradient_svbpy"]
 
@@ -90,3 +91,9 @@ offset_left = 12.0
 offset_top = 271.0
 offset_right = 212.0
 offset_bottom = 298.0
+
+[node name="IntentUI" parent="." instance=ExtResource("8_b8os3")]
+offset_left = 199.0
+offset_top = 68.0
+offset_right = 309.0
+offset_bottom = 132.0

@@ -19,6 +19,13 @@ func reset_energy() -> void:
 	self.energy = max_energy
 
 
+func take_damage(damage: int) -> void:
+	var initial_hp := hp
+	super.take_damage(damage)
+	if initial_hp > hp:
+		Events.player_hit.emit()
+
+
 func can_play_die(die: DieModel) -> bool:
 	return energy >= die.cost
 

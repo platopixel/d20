@@ -2,6 +2,7 @@ extends DieState
 
 @export var die: Die
 
+
 func enter() -> void:
 	die.reparent_requested.emit(die)
 	die.debugColor.color = Color.WEB_GREEN

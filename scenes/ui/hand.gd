@@ -4,12 +4,6 @@ class_name Hand extends HBoxContainer
 
 @onready var die_scene := preload("res://scenes/dice/die.tscn")
 
-var dice_played_this_turn := 0
-
-
-func _ready() -> void:
-	Events.die_played.connect(_on_die_played)
-
 
 func add_die(die: DieModel) -> void:
 	var die_ui := die_scene.instantiate()
@@ -28,11 +22,9 @@ func disable_hand() -> void:
 		die.disabled = true
 
 
-func _on_die_played(_die: DieModel) -> void:
-	dice_played_this_turn += 1
-
-
 func _on_die_ui_reparent_requested(child: Die) -> void:
+	child.disabled = true
 	child.reparent(self)
-	var new_index := clampi(child.original_index - dice_played_this_turn, 0, get_child_count())
+	var new_index := clampi(child.original_index, 0, get_child_count())
 	move_child.call_deferred(child, new_index)
+	child.set_deferred("disabled", false)

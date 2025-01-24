@@ -13,8 +13,8 @@ signal reparent_requested(which_die: Die)
 @onready var die_state_machine: DieStateMachine = $DieStateMachine as DieStateMachine
 @onready var targets: Array[Node] = []
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var original_index := self.get_index()
 
+var original_index := 0 # used to put the die back into the same index of the hand when cancelled
 var faces: Array[DIE_FACE] = []
 var current_roll: DieFace
 var playable := true : set = _set_playable

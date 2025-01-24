@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://43yimxl0bwq3"]
+
+[ext_resource type="Texture2D" uid="uid://4olrskei7nd6" path="res://assets/attack_icon.png" id="1_4511j"]
+[ext_resource type="Script" path="res://scenes/ui/intent_ui.gd" id="1_hrhp5"]
+
+[node name="IntentUI" type="HBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.5
+offset_right = 39.5
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_constants/separation = 7
+alignment = 1
+script = ExtResource("1_hrhp5")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_4511j")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Amount" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 26
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1

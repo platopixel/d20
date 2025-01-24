@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cryaldygx48fa"]
+[gd_scene load_steps=21 format=3 uid="uid://cryaldygx48fa"]
 
 [ext_resource type="Script" path="res://scenes/game_table.gd" id="1_ue63g"]
 [ext_resource type="PackedScene" uid="uid://crlsfq4k8cwld" path="res://enemies/enemy.tscn" id="2_4f4xb"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://qtw0hk1q0esv" path="res://assets/ui-background.png" id="13_uwq77"]
 [ext_resource type="Texture2D" uid="uid://qr3e1g00ekdx" path="res://assets/button.png" id="14_3gqon"]
 [ext_resource type="Texture2D" uid="uid://d0mghxaoywpij" path="res://assets/button_pressed.png" id="15_dhnm8"]
+[ext_resource type="Script" path="res://scenes/ui/red_flash.gd" id="18_f42aq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vbntx"]
 
@@ -128,3 +129,20 @@ theme_override_constants/outline_size = 1
 text = "END TURN"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RedFlash" type="CanvasLayer" parent="."]
+layer = 2
+script = ExtResource("18_f42aq")
+
+[node name="ColorRect" type="ColorRect" parent="RedFlash"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.811765, 0.298039, 0.380392, 0)
+
+[node name="Timer" type="Timer" parent="RedFlash"]
+wait_time = 0.1
+one_shot = true

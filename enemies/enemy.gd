@@ -3,6 +3,7 @@ class_name Enemy extends Node2D
 @export var stats: EnemyStats : set = set_enemy_stats
 
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
+@onready var intent_ui: IntentUI = $IntentUI as IntentUI
 
 var enemy_action_picker: EnemyActionPicker
 var current_action: EnemyAction : set = set_current_action
@@ -10,6 +11,8 @@ var current_action: EnemyAction : set = set_current_action
 
 func set_current_action(value: EnemyAction) -> void:
 	current_action = value
+	if current_action:
+		intent_ui.update_intent(current_action.intent)
 
 
 func set_enemy_stats(value: EnemyStats) -> void:
@@ -73,7 +76,13 @@ func take_damage(damage: int) -> void:
 	if stats.hp <= 0:
 		return
 
-	stats.take_damage(damage)
+	var tween := create_tween()
+	tween.tween_callback(Shaker.shake.bind(self, 16, 0.15))
+	tween.tween_callback(stats.take_damage.bind(damage))
+	tween.tween_interval(0.2)
 
-	if stats.hp <= 0:
-		queue_free()
+	tween.finished.connect(
+		func():
+			if stats.hp <= 0:
+				queue_free()
+	)
