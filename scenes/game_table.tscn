@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://cryaldygx48fa"]
+[gd_scene load_steps=20 format=3 uid="uid://cryaldygx48fa"]
 
-[ext_resource type="Texture2D" uid="uid://cs4kwn4pu8kvb" path="res://assets/background.png" id="1_oh0lp"]
 [ext_resource type="Script" path="res://scenes/game_table.gd" id="1_ue63g"]
 [ext_resource type="PackedScene" uid="uid://crlsfq4k8cwld" path="res://enemies/enemy.tscn" id="2_4f4xb"]
 [ext_resource type="Script" path="res://scenes/ui/hand.gd" id="2_cmgux"]
-[ext_resource type="Resource" uid="uid://c0ld3vy2qffvs" path="res://enemies/spy/test_enemy.tres" id="3_w0t0n"]
+[ext_resource type="Texture2D" uid="uid://x7scmphuk54" path="res://assets/city-background.png" id="3_aoukk"]
+[ext_resource type="Script" path="res://enemies/enemy_handler.gd" id="4_bvnc7"]
+[ext_resource type="Resource" uid="uid://c85e051l1578x" path="res://enemies/spy/spy_enemy.tres" id="5_6fbiy"]
 [ext_resource type="Script" path="res://scenes/ui/battle_ui.gd" id="6_rg7ft"]
 [ext_resource type="Script" path="res://scenes/player_handler.gd" id="7_t6lt2"]
 [ext_resource type="PackedScene" uid="uid://7h0jvdjn6qic" path="res://scenes/player.tscn" id="7_txw2l"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dcn4hskvgsfw7" path="res://scenes/ui/tooltip.tscn" id="10_s1a8w"]
 [ext_resource type="PackedScene" uid="uid://dd4vhrh5g6fdr" path="res://scenes/ui/health_ui.tscn" id="12_12l0y"]
 [ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="13_mcw8m"]
+[ext_resource type="Texture2D" uid="uid://qtw0hk1q0esv" path="res://assets/ui-background.png" id="13_uwq77"]
 [ext_resource type="Texture2D" uid="uid://qr3e1g00ekdx" path="res://assets/button.png" id="14_3gqon"]
 [ext_resource type="Texture2D" uid="uid://d0mghxaoywpij" path="res://assets/button_pressed.png" id="15_dhnm8"]
 
@@ -27,7 +29,8 @@ script = ExtResource("1_ue63g")
 player_stats = ExtResource("8_w6sov")
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("1_oh0lp")
+modulate = Color(0.509286, 0.509286, 0.509286, 1)
+texture = ExtResource("3_aoukk")
 centered = false
 
 [node name="DieDropArea" type="Area2D" parent="."]
@@ -38,12 +41,17 @@ position = Vector2(640, 237)
 shape = SubResource("RectangleShape2D_q263g")
 debug_color = Color(0, 0.6, 0.701961, 0.176471)
 
-[node name="Enemy" parent="." instance=ExtResource("2_4f4xb")]
-position = Vector2(262, 24)
-stats = ExtResource("3_w0t0n")
+[node name="EnemyHandler" type="Node2D" parent="."]
+script = ExtResource("4_bvnc7")
+
+[node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_4f4xb")]
+position = Vector2(493, 8)
+scale = Vector2(1.5, 1.5)
+stats = ExtResource("5_6fbiy")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("7_txw2l")]
-position = Vector2(645, 509)
+z_index = 2
+position = Vector2(1143, 56)
 stats = ExtResource("8_w6sov")
 
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
@@ -70,10 +78,10 @@ alignment = 1
 script = ExtResource("2_cmgux")
 
 [node name="Tooltip" parent="BattleUI" instance=ExtResource("10_s1a8w")]
-offset_left = 246.0
-offset_top = 28.0
-offset_right = 606.0
-offset_bottom = 218.0
+offset_left = -573.0
+offset_top = 23.0
+offset_right = -213.0
+offset_bottom = 213.0
 
 [node name="HealthUI" parent="BattleUI" instance=ExtResource("12_12l0y")]
 offset_left = 1030.0
@@ -86,6 +94,13 @@ offset_left = 1030.0
 offset_top = 525.0
 offset_right = 1231.0
 offset_bottom = 592.0
+
+[node name="TextureRect" type="TextureRect" parent="BattleUI"]
+z_index = -1
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("13_uwq77")
 
 [node name="EndTurnButton" type="TextureButton" parent="BattleUI"]
 unique_name_in_owner = true

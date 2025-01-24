@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://c0ld3vy2qffvs"]
-
-[ext_resource type="Script" path="res://custom_resources/stats.gd" id="1_3e238"]
-[ext_resource type="Texture2D" uid="uid://bu4qn0lskhf7f" path="res://assets/enemy.png" id="1_aeur5"]
-
-[resource]
-script = ExtResource("1_3e238")
-max_hp = 40
-art = ExtResource("1_aeur5")

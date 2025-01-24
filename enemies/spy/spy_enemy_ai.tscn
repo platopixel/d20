@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bso4dtjtpw7rl"]
+
+[ext_resource type="Script" path="res://enemies/enemy_action_picker.gd" id="1_6f32a"]
+[ext_resource type="Script" path="res://enemies/spy/spy_attack_action.gd" id="2_3fb52"]
+[ext_resource type="Script" path="res://enemies/spy/spy_block_action.gd" id="3_2gbms"]
+[ext_resource type="Script" path="res://enemies/spy/spy_mega_block_action.gd" id="4_bdiig"]
+
+[node name="SpyEnemyAI" type="Node"]
+script = ExtResource("1_6f32a")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_3fb52")
+type = 1
+chance_weight = 1.0
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("3_2gbms")
+block = 5
+type = 1
+chance_weight = 1.0
+
+[node name="MegaBlockAction" type="Node" parent="."]
+script = ExtResource("4_bdiig")

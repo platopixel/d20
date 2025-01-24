@@ -3,7 +3,7 @@ class_name BlockEffect extends Effect
 var amount := 0
 
 
-func execute(targets: Array[Node], roll) -> void:
+func execute(targets: Array[Node], roll = {"number": amount}) -> void:
 	for target in targets:
 		if not target:
 			continue
