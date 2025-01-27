@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="1_5w7cy"]
 [ext_resource type="Script" path="res://scenes/ui/tooltip.gd" id="2_m1x4p"]
-[ext_resource type="Texture2D" uid="uid://dw3it0krwlyo" path="res://assets/panel_rectangle.png" id="3_d7dhi"]
+[ext_resource type="Texture2D" uid="uid://jxi83ayxvohl" path="res://assets/interface-panel.png" id="3_jpy45"]
 [ext_resource type="Texture2D" uid="uid://cfvxefgab4wck" path="res://assets/yellow_square.png" id="4_vudef"]
 
 [node name="Tooltip" type="PanelContainer"]
@@ -18,8 +18,8 @@ script = ExtResource("2_m1x4p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("3_d7dhi")
-expand_mode = 2
+texture = ExtResource("3_jpy45")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -33,6 +33,7 @@ layout_mode = 2
 
 [node name="TooltipIcon" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -44,7 +45,10 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/default_color = Color(0.4, 0.407843, 0.501961, 1)
+theme_override_colors/default_color = Color(0.568627, 0.858824, 0.411765, 1)
 bbcode_enabled = true
 text = "Tooltip description is very
 Tooltip description"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

@@ -31,8 +31,16 @@ player_stats = ExtResource("8_w6sov")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.509286, 0.509286, 0.509286, 1)
+z_index = -1
 texture = ExtResource("3_aoukk")
 centered = false
+
+[node name="UIBackground" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("13_uwq77")
 
 [node name="DieDropArea" type="Area2D" parent="."]
 collision_layer = 2
@@ -43,16 +51,17 @@ shape = SubResource("RectangleShape2D_q263g")
 debug_color = Color(0, 0.6, 0.701961, 0.176471)
 
 [node name="EnemyHandler" type="Node2D" parent="."]
+position = Vector2(-23, 2)
 script = ExtResource("4_bvnc7")
 
 [node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_4f4xb")]
-position = Vector2(493, 8)
+position = Vector2(499, -4)
 scale = Vector2(1.5, 1.5)
 stats = ExtResource("5_6fbiy")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("7_txw2l")]
 z_index = 2
-position = Vector2(1143, 56)
+position = Vector2(685, 512)
 stats = ExtResource("8_w6sov")
 
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
@@ -78,11 +87,17 @@ theme_override_constants/separation = 15
 alignment = 1
 script = ExtResource("2_cmgux")
 
-[node name="Tooltip" parent="BattleUI" instance=ExtResource("10_s1a8w")]
-offset_left = -573.0
-offset_top = 23.0
-offset_right = -213.0
-offset_bottom = 213.0
+[node name="DiceTooltip" parent="BattleUI" instance=ExtResource("10_s1a8w")]
+offset_left = 250.0
+offset_top = 30.0
+offset_right = 580.0
+offset_bottom = 430.0
+
+[node name="EnemyTooltip" parent="BattleUI" instance=ExtResource("10_s1a8w")]
+offset_left = -587.0
+offset_top = 30.0
+offset_right = -257.0
+offset_bottom = 430.0
 
 [node name="HealthUI" parent="BattleUI" instance=ExtResource("12_12l0y")]
 offset_left = 1030.0
@@ -95,13 +110,6 @@ offset_left = 1030.0
 offset_top = 525.0
 offset_right = 1231.0
 offset_bottom = 592.0
-
-[node name="TextureRect" type="TextureRect" parent="BattleUI"]
-z_index = -1
-offset_right = 1280.0
-offset_bottom = 720.0
-mouse_filter = 2
-texture = ExtResource("13_uwq77")
 
 [node name="EndTurnButton" type="TextureButton" parent="BattleUI"]
 unique_name_in_owner = true

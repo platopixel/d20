@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bv0tu1ee36gp0"]
+
+[node name="SelectionOutline" type="Node2D"]
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-2, 3, -2, 72, -2, 142)
+width = 5.0
+default_color = Color(0.560784, 0.827451, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(-5, 0)
+rotation = -1.5706
+points = PackedVector2Array(-2, 3, -2, 72, -2, 142)
+width = 5.0
+default_color = Color(0.560784, 0.827451, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="."]
+position = Vector2(0, 575)
+points = PackedVector2Array(-2, 3, -2, 72, -2, 142)
+width = 5.0
+default_color = Color(0.560784, 0.827451, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D4" type="Line2D" parent="."]
+position = Vector2(-3, 716)
+rotation = -1.5708
+points = PackedVector2Array(-2, 3, -2, 72, -2, 142)
+width = 5.0
+default_color = Color(0.560784, 0.827451, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D5" type="Line2D" parent="."]
+position = Vector2(1280, 0)
+points = PackedVector2Array(-2, 3, -2, 72, -2, 142)
+width = 5.0
+default_color = Color(0.560784, 0.827451, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D6" type="Line2D" parent="."]
+position = Vector2(1280, 5)
+rotation = 1.5708
+points = PackedVector2Array(-2, 3, -2, 72, -2, 142)
+width = 5.0
+default_color = Color(0.560784, 0.827451, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D7" type="Line2D" parent="."]
+position = Vector2(1280, 720)
+rotation = -3.14159
+points = PackedVector2Array(-2, 3, -2, 72, -2, 142)
+width = 5.0
+default_color = Color(0.560784, 0.827451, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D8" type="Line2D" parent="."]
+position = Vector2(1285, 720)
+rotation = 1.5708
+points = PackedVector2Array(-2, 3, -2, 72, -2, 142)
+width = 5.0
+default_color = Color(0.560784, 0.827451, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
