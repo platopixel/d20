@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcn4hskvgsfw7"]
+[gd_scene load_steps=5 format=3 uid="uid://dcn4hskvgsfw7"]
 
 [ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="1_5w7cy"]
 [ext_resource type="Script" path="res://scenes/ui/tooltip.gd" id="2_m1x4p"]
-[ext_resource type="Texture2D" uid="uid://jxi83ayxvohl" path="res://assets/interface-panel.png" id="3_jpy45"]
+[ext_resource type="Texture2D" uid="uid://6068gg2s2ur1" path="res://assets/interface-panel-corners.png" id="3_2i5lq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3wkr8"]
 
 [node name="Tooltip" type="PanelContainer"]
 anchors_preset = 5
@@ -13,18 +15,19 @@ offset_right = 180.0
 offset_bottom = 190.0
 grow_horizontal = 2
 theme = ExtResource("1_5w7cy")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3wkr8")
 script = ExtResource("2_m1x4p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("3_jpy45")
+texture = ExtResource("3_2i5lq")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 30
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 35
 theme_override_constants/margin_bottom = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]

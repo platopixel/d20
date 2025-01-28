@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cryaldygx48fa"]
+[gd_scene load_steps=24 format=3 uid="uid://cryaldygx48fa"]
 
 [ext_resource type="Script" path="res://scenes/game_table.gd" id="1_ue63g"]
 [ext_resource type="PackedScene" uid="uid://crlsfq4k8cwld" path="res://enemies/enemy.tscn" id="2_4f4xb"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d1u5tqt2h8f41" path="res://assets/bosque-trail.png" id="3_6q30b"]
 [ext_resource type="Script" path="res://enemies/enemy_handler.gd" id="4_bvnc7"]
 [ext_resource type="Resource" uid="uid://c85e051l1578x" path="res://enemies/spy/spy_enemy.tres" id="5_6fbiy"]
+[ext_resource type="Texture2D" uid="uid://0ep870o4iql6" path="res://assets/ui-grid.png" id="5_ads4c"]
 [ext_resource type="Script" path="res://scenes/ui/battle_ui.gd" id="6_rg7ft"]
 [ext_resource type="Script" path="res://scenes/player_handler.gd" id="7_t6lt2"]
 [ext_resource type="PackedScene" uid="uid://7h0jvdjn6qic" path="res://scenes/player.tscn" id="7_txw2l"]
@@ -32,7 +33,7 @@ script = ExtResource("1_ue63g")
 player_stats = ExtResource("8_w6sov")
 
 [node name="Background" type="Sprite2D" parent="."]
-modulate = Color(0.509286, 0.509286, 0.509286, 1)
+modulate = Color(0.733005, 0.733005, 0.733005, 1)
 z_index = -1
 texture = ExtResource("3_6q30b")
 centered = false
@@ -43,6 +44,14 @@ offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 2
 texture = ExtResource("13_uwq77")
+
+[node name="TextureRect" type="TextureRect" parent="UIBackground"]
+layout_mode = 0
+offset_top = 295.0
+offset_right = 1280.0
+offset_bottom = 674.0
+texture = ExtResource("5_ads4c")
+expand_mode = 2
 
 [node name="DieDropArea" type="Area2D" parent="."]
 collision_layer = 2
@@ -90,7 +99,7 @@ script = ExtResource("2_cmgux")
 
 [node name="DiceTooltip" parent="BattleUI" instance=ExtResource("10_s1a8w")]
 offset_left = -604.0
-offset_top = 303.0
+offset_top = 373.0
 offset_right = -270.0
 offset_bottom = 530.0
 script = ExtResource("13_qyf4o")
