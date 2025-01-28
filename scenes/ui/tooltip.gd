@@ -1,8 +1,7 @@
 class_name Tooltip extends PanelContainer
 
-@export var fade_seconds := 0.2
+@export var fade_seconds := 0.3
 
-@onready var tooltip_icon: TextureRect = %TooltipIcon
 @onready var tooltip_text_label: RichTextLabel = %TooltipText
 @onready var timer: Timer = $Timer
 
@@ -11,7 +10,6 @@ var is_visible: bool = false
 
 
 func _ready() -> void:
-	Events.die_tooltip_requested.connect(show_tooltip)
 	Events.tooltip_hide_requested.connect(hide_tooltip)
 	modulate = Color.TRANSPARENT
 	hide()
@@ -28,16 +26,15 @@ func _on_timer() -> void:
 	tween.tween_property(self, "modulate", Color.WHITE, fade_seconds)
 
 
-func show_tooltip(icon: Texture, text: String) -> void:
-	is_visible = true
-	if tween:
-		tween.kill()
+func show_tooltip(text: String) -> void:
+	# is_visible = true
+	# if tween:
+	# 	tween.kill()
 
-	tooltip_icon.texture = icon
 	tooltip_text_label.text = text
-	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_callback(show)
-	tween.tween_property(self, "modulate", Color.WHITE, fade_seconds)
+	# tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	# tween.tween_callback(show)
+	# tween.tween_property(self, "modulate", Color.WHITE, fade_seconds)
 
 
 func hide_tooltip() -> void:

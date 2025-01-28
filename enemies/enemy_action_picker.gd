@@ -24,7 +24,7 @@ func get_first_conditional_action() -> EnemyAction:
 
 	for child in get_children():
 		action = child as EnemyAction
-		if not action or action.type != EnemyAction.Type.CONDITIONAL:
+		if not action or action.action_type != EnemyAction.ActionType.CONDITIONAL:
 			continue
 
 		if action.is_performable():
@@ -39,7 +39,7 @@ func get_chance_based_action() -> EnemyAction:
 
 	for child in get_children():
 		action = child as EnemyAction
-		if not action or action.type != EnemyAction.Type.CHANCE_BASED:
+		if not action or action.action_type != EnemyAction.ActionType.CHANCE_BASED:
 			continue
 
 		if action.accumulated_weight > roll:
@@ -53,7 +53,7 @@ func setup_chances() -> void:
 
 	for child in get_children():
 		action = child as EnemyAction
-		if not action or action.type != EnemyAction.Type.CHANCE_BASED:
+		if not action or action.action_type != EnemyAction.ActionType.CHANCE_BASED:
 			continue
 
 		total_weight += action.chance_weight

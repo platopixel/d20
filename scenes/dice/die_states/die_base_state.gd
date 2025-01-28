@@ -24,7 +24,7 @@ func on_mouse_entered() -> void:
 	if not die.playable or die.disabled:
 		return
 	# todo: add visual indicator that the die is being hovered
-	Events.die_tooltip_requested.emit(die.die.icon, die.die.tooltip_text)
+	Events.die_tooltip_requested.emit(die.die.tooltip_text)
 
 
 func on_mouse_exited() -> void:

@@ -13,6 +13,7 @@ func set_current_action(value: EnemyAction) -> void:
 	current_action = value
 	if current_action:
 		intent_ui.update_intent(current_action.intent)
+		Events.enemy_tooltip_requested.emit.call_deferred(stats, current_action.intent)
 
 
 func set_enemy_stats(value: EnemyStats) -> void:
@@ -50,6 +51,7 @@ func update_action() -> void:
 
 func update_stats() -> void:
 	stats_ui.update_stats(stats)
+	Events.enemy_tooltip_requested.emit.call_deferred(stats)
 
 
 func update_enemy() -> void:

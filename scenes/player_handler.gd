@@ -11,6 +11,7 @@ var player_stats: PlayerStats
 func _ready() -> void:
 	Events.die_played.connect(_on_die_played)
 
+
 func start_battle(new_player_stats: PlayerStats) -> void:
 	player_stats = new_player_stats
 	player_stats.draw_pile = player_stats.deck.duplicate(true)

@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcn4hskvgsfw7"]
+[gd_scene load_steps=4 format=3 uid="uid://dcn4hskvgsfw7"]
 
 [ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="1_5w7cy"]
 [ext_resource type="Script" path="res://scenes/ui/tooltip.gd" id="2_m1x4p"]
 [ext_resource type="Texture2D" uid="uid://jxi83ayxvohl" path="res://assets/interface-panel.png" id="3_jpy45"]
-[ext_resource type="Texture2D" uid="uid://cfvxefgab4wck" path="res://assets/yellow_square.png" id="4_vudef"]
 
 [node name="Tooltip" type="PanelContainer"]
 anchors_preset = 5
@@ -31,21 +30,12 @@ theme_override_constants/margin_bottom = 30
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="TooltipIcon" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("4_vudef")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="TooltipText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.568627, 0.858824, 0.411765, 1)
+theme_override_constants/line_separation = 5
 bbcode_enabled = true
 text = "Tooltip description is very
 Tooltip description"

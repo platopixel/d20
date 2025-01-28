@@ -7,5 +7,8 @@
 [resource]
 script = ExtResource("1_di0rh")
 ai = ExtResource("1_ermsu")
+name = "Spy"
+description = "Government agent tasked with capturing or eliminating rogue AI"
+relation = 0
 max_hp = 25
 art = ExtResource("1_n0oae")

@@ -3,6 +3,10 @@ extends EnemyAction
 @export var block := 6
 
 
+func is_performable() -> bool:
+	return true
+
+
 func perform_action() -> void:
 	if not enemy or not target:
 		return

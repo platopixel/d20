@@ -1,9 +1,9 @@
 class_name EnemyAction extends Node
 
-enum Type {CONDITIONAL, CHANCE_BASED}
+enum ActionType {CONDITIONAL, CHANCE_BASED}
 
 @export var intent: Intent
-@export var type: Type
+@export var action_type: ActionType
 @export_range(0.0, 10.0) var chance_weight := 0.0
 
 @onready var accumulated_weight := 0.0
