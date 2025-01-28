@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="1_di0rh"]
 [ext_resource type="PackedScene" uid="uid://bso4dtjtpw7rl" path="res://enemies/spy/spy_enemy_ai.tscn" id="1_ermsu"]
-[ext_resource type="Texture2D" uid="uid://bu4qn0lskhf7f" path="res://assets/enemy.png" id="1_n0oae"]
+[ext_resource type="Texture2D" uid="uid://dia7vd45pqw63" path="res://assets/duck.png" id="2_djsnw"]
 
 [resource]
 script = ExtResource("1_di0rh")
@@ -11,4 +11,4 @@ name = "Spy"
 description = "Government agent tasked with capturing or eliminating rogue AI"
 relation = 0
 max_hp = 25
-art = ExtResource("1_n0oae")
+art = ExtResource("2_djsnw")

@@ -9,3 +9,4 @@ script = ExtResource("1_yoew7")
 stats = ExtResource("2_2coc8")
 
 [node name="StatsUI" parent="." instance=ExtResource("3_40173")]
+visible = false

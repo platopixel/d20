@@ -23,6 +23,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Amount" type="Label" parent="."]
+visible = false
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 26

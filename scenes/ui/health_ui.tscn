@@ -1,27 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd4vhrh5g6fdr"]
+[gd_scene load_steps=5 format=3 uid="uid://dd4vhrh5g6fdr"]
 
 [ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="1_6r4p4"]
-[ext_resource type="Texture2D" uid="uid://cd8yentl5nhct" path="res://assets/health_bar.png" id="2_a7nor"]
+[ext_resource type="Script" path="res://scenes/ui/health_ui.gd" id="2_67ngm"]
+[ext_resource type="Texture2D" uid="uid://jxi83ayxvohl" path="res://assets/interface-panel.png" id="2_tecmq"]
+[ext_resource type="Resource" uid="uid://bo2k5hhiu37r4" path="res://characters/player/player.tres" id="3_v0pmt"]
 
 [node name="HealthUI" type="Panel"]
-offset_right = 201.0
-offset_bottom = 67.0
+offset_right = 246.0
+offset_bottom = 44.0
 theme = ExtResource("1_6r4p4")
+script = ExtResource("2_67ngm")
+player_stats = ExtResource("3_v0pmt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 201.0
-offset_bottom = 67.0
-texture = ExtResource("2_a7nor")
-expand_mode = 1
+offset_right = 246.0
+offset_bottom = 44.0
+texture = ExtResource("2_tecmq")
+expand_mode = 2
 
 [node name="HPLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 2.0
-offset_right = 157.0
-offset_bottom = 34.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+offset_left = 11.0
+offset_top = 3.0
+offset_right = 131.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.909804, 0.231373, 0.231373, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 28
 text = "50/50"
@@ -30,12 +34,11 @@ vertical_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 38.0
-offset_right = 165.0
-offset_bottom = 64.0
-theme_override_colors/default_color = Color(0.235294, 0.235294, 0.235294, 1)
-theme_override_colors/font_shadow_color = Color(0.70613, 0.391842, 0.415862, 1)
-theme_override_font_sizes/normal_font_size = 20
+offset_left = 131.0
+offset_top = 7.0
+offset_right = 237.0
+offset_bottom = 39.0
+theme_override_colors/default_color = Color(0.568627, 0.858824, 0.411765, 1)
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[center]HEALTH[/center]"

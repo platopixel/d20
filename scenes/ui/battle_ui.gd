@@ -4,6 +4,7 @@ class_name BattleUI extends CanvasLayer
 
 @onready var hand: Hand = $Hand as Hand
 @onready var energy_ui: EnergyUI = $EnergyUI as EnergyUI
+@onready var health_ui: HealthUI = $HealthUI
 @onready var end_turn_button: TextureButton = %EndTurnButton
 
 
@@ -15,6 +16,7 @@ func _ready() -> void:
 func _set_player_stats(value: PlayerStats) -> void:
 	player_stats = value
 	energy_ui.player_stats = player_stats
+	health_ui.player_stats = player_stats
 	hand.player_stats = player_stats
 
 

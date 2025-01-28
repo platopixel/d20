@@ -1,10 +1,11 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://d3nt4vpn2j01h"]
 
-[ext_resource type="FontFile" uid="uid://d2tbijuk8khg6" path="res://Kenney Future.ttf" id="1_5m2vc"]
+[ext_resource type="FontFile" uid="uid://dtp0wn1ieooqm" path="res://Tektur-Medium.ttf" id="1_41le7"]
 
 [resource]
-default_font = ExtResource("1_5m2vc")
-default_font_size = 14
+default_font = ExtResource("1_41le7")
+default_font_size = 18
+Button/colors/font_color = Color(0.568627, 0.858824, 0.411765, 1)
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = null
