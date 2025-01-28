@@ -6,6 +6,7 @@ const DRAG_MINIMUM_THRESHOLD := 0.3
 
 var minimum_drag_time_elapsed := false
 
+
 func enter() -> void:
 	var ui_layer := get_tree().get_first_node_in_group("ui_layer")
 	if ui_layer:

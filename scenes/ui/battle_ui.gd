@@ -26,4 +26,5 @@ func _on_player_hand_drawn() -> void:
 
 func _on_end_turn_button_pressed() -> void:
 	end_turn_button.disabled = true
+	# loop through played dice and fade them out and queue free
 	Events.player_turn_ended.emit()

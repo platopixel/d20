@@ -50,6 +50,14 @@ func draw_dice(amount: int) -> void:
 
 func discard_dice() -> void:
 	var tween := create_tween()
+	var ui_layer := get_tree().get_first_node_in_group("ui_layer")
+	if ui_layer:
+		for child in ui_layer.get_children():
+			if child is Die:
+				tween.tween_callback(player_stats.discard.add_die.bind(child.die))
+				tween.tween_callback(hand.discard_die.bind(child))
+				tween.tween_interval(HAND_DISCARD_INTERVAL)
+
 	for die in hand.get_children():
 		tween.tween_callback(player_stats.discard.add_die.bind(die.die))
 		tween.tween_callback(hand.discard_die.bind(die))
@@ -72,4 +80,5 @@ func reshuffle_deck_from_discard() -> void:
 
 
 func _on_die_played(die: DieModel) -> void:
-	player_stats.discard.add_die(die)
+	pass
+	# player_stats.discard.add_die(die)

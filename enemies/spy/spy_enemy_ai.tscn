@@ -18,13 +18,13 @@ type = 0
 script = ExtResource("4_44ss3")
 number = ""
 icon = ExtResource("6_g2xtt")
-type = 0
+type = 1
 
 [sub_resource type="Resource" id="Resource_e884u"]
 script = ExtResource("4_44ss3")
 number = ""
 icon = ExtResource("6_g2xtt")
-type = 0
+type = 1
 
 [node name="SpyEnemyAI" type="Node"]
 script = ExtResource("1_6f32a")
@@ -32,12 +32,14 @@ script = ExtResource("1_6f32a")
 [node name="AttackAction" type="Node" parent="."]
 script = ExtResource("2_3fb52")
 intent = SubResource("Resource_o38bj")
+action_type = 1
 chance_weight = 1.0
 
 [node name="BlockAction" type="Node" parent="."]
 script = ExtResource("3_2gbms")
 block = 5
 intent = SubResource("Resource_qwgjy")
+action_type = 1
 chance_weight = 1.0
 
 [node name="MegaBlockAction" type="Node" parent="."]

@@ -27,7 +27,7 @@ expand_mode = 1
 layout_mode = 2
 theme_override_constants/margin_left = 35
 theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 35
+theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -38,6 +38,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.568627, 0.858824, 0.411765, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_constants/line_separation = 5
 bbcode_enabled = true
 text = "Tooltip description is very
