@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DieModel" load_steps=2 format=3 uid="uid://tgciucf2m12y"]
+
+[ext_resource type="Script" path="res://custom_resources/die_model.gd" id="1_dq66g"]
+
+[resource]
+script = ExtResource("1_dq66g")
+id = "heavy_attack"
+type = 0
+target = 1
+cost = 3
+num_faces = 6
+tooltip_text = ""
