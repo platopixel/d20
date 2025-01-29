@@ -97,6 +97,7 @@ func play() -> void:
 func roll() -> void:
 	current_roll = faces.pick_random()
 	$Label.text = str(current_roll.number)
+	sprite_2d.texture = current_roll.texture
 
 
 func _on_drop_point_detector_area_entered(area: Area2D) -> void:
