@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="DieModel" load_steps=2 format=3 uid="uid://tgciucf2m12y"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://tgciucf2m12y"]
 
-[ext_resource type="Script" path="res://custom_resources/die_model.gd" id="1_dq66g"]
+[ext_resource type="Texture2D" uid="uid://bfiyu1n4ev6ju" path="res://assets/d20-blank.png" id="1_7nh50"]
+[ext_resource type="Script" path="res://dice/heavy_attack.gd" id="2_pme2i"]
 
 [resource]
-script = ExtResource("1_dq66g")
+script = ExtResource("2_pme2i")
 id = "heavy_attack"
 type = 0
 target = 1
-cost = 3
-num_faces = 6
-tooltip_text = ""
+cost = 1
+num_faces = 20
+is_d20 = true
+tooltip_text = "Big boy D20. Attacks for roll"
+icon = ExtResource("1_7nh50")

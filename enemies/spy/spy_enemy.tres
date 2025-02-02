@@ -10,5 +10,5 @@ ai = ExtResource("1_ermsu")
 name = "Spy"
 description = "Government agent tasked with capturing or eliminating rogue AI"
 relation = 0
-max_hp = 25
+max_hp = 50
 art = ExtResource("2_djsnw")

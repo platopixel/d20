@@ -11,7 +11,8 @@ var DIE_TEXTURES := {
 	3: load("res://assets/d6-3.png"),
 	4: load("res://assets/d6-4.png"),
 	5: load("res://assets/d6-5.png"),
-	6: load("res://assets/d6-6.png")
+	6: load("res://assets/d6-6.png"),
+	20: load("res://assets/d20-blank.png")
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -25,4 +26,7 @@ func _process(delta: float) -> void:
 
 func set_number(value: int) -> void:
 	number = value
+
+
+func set_texture(value: int) -> void:
 	texture = DIE_TEXTURES[value]

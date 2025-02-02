@@ -1,6 +1,6 @@
 extends EnemyAction
 
-@export var block := 6
+@export var block := 10
 
 
 func is_performable() -> bool:

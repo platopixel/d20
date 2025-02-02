@@ -33,6 +33,7 @@ script = ExtResource("1_ue63g")
 player_stats = ExtResource("8_w6sov")
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.733005, 0.733005, 0.733005, 1)
 z_index = -1
 texture = ExtResource("3_6q30b")
@@ -62,7 +63,7 @@ shape = SubResource("RectangleShape2D_q263g")
 debug_color = Color(0, 0.6, 0.701961, 0.176471)
 
 [node name="EnemyHandler" type="Node2D" parent="."]
-position = Vector2(431, 42)
+position = Vector2(434, 3.8147e-06)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("4_bvnc7")
 
@@ -92,7 +93,7 @@ offset_top = -152.0
 offset_right = 342.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 45
+theme_override_constants/separation = 30
 alignment = 1
 script = ExtResource("2_cmgux")
 

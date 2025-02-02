@@ -52,8 +52,14 @@ func _set_die(value: DieModel) -> void:
 	for i in range(1, die.num_faces + 1):
 		var instance = DIE_FACE.new()
 		instance.number = i
+		if not die.is_d20:
+			instance.set_texture(i)
+		else:
+			instance.set_texture(20)
+
 		faces.append(instance)
 
+	sprite_2d.texture = faces[die.num_faces - 1].texture # set default texture to highest die roll
 	sprite_2d.material = die.shader
 
 

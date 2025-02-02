@@ -8,4 +8,4 @@
 
 [resource]
 script = ExtResource("2_dmaxx")
-dice = Array[ExtResource("1_ed2vd")]([ExtResource("2_kjx1g"), ExtResource("2_kjx1g"), ExtResource("2_kjx1g"), ExtResource("2_kjx1g"), ExtResource("2_kjx1g"), ExtResource("3_ub0r0"), ExtResource("3_ub0r0"), ExtResource("3_ub0r0"), ExtResource("3_ub0r0"), ExtResource("3_ub0r0"), ExtResource("4_v0yse")])
+dice = Array[ExtResource("1_ed2vd")]([ExtResource("2_kjx1g"), ExtResource("2_kjx1g"), ExtResource("2_kjx1g"), ExtResource("3_ub0r0"), ExtResource("3_ub0r0"), ExtResource("3_ub0r0"), ExtResource("4_v0yse")])

@@ -26,28 +26,27 @@ shader_parameter/tolerance = 0.0
 shader_parameter/color = SubResource("GradientTexture1D_31v5d")
 
 [sub_resource type="LabelSettings" id="LabelSettings_agm8h"]
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.8, 0.909804, 0.980392, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ci871"]
-size = Vector2(94, 86)
+size = Vector2(75, 68)
 
 [node name="Die" type="Control"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 95.0
-offset_bottom = 87.0
+offset_right = 74.0
+offset_bottom = 66.0
 theme = ExtResource("1_yhqcx")
 script = ExtResource("1_v0k3q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_bnv4y")
-scale = Vector2(0.437, 0.4)
+scale = Vector2(0.35, 0.318)
 texture = ExtResource("3_web68")
 centered = false
 
 [node name="Label" type="Label" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -93,7 +92,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
-position = Vector2(48, 44)
+position = Vector2(38.5, 35)
 shape = SubResource("RectangleShape2D_ci871")
 
 [node name="DieStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

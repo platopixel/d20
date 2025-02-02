@@ -1,6 +1,6 @@
 extends EnemyAction
 
-@export var damage := 7
+@export var damage := 12
 
 
 func is_performable() -> bool:

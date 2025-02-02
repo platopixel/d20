@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_upg5w")
 starting_deck = ExtResource("2_adacb")
-dice_per_turn = 5
+dice_per_turn = 3
 max_energy = 3
 max_hp = 50

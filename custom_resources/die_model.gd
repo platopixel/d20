@@ -9,6 +9,7 @@ enum Target {SELF, ENEMY, EVERYONE}
 @export var target: Target
 @export var cost: int
 @export var num_faces: int
+@export var is_d20: bool
 
 @export_group("Die Visuals")
 @export var shader: ShaderMaterial
