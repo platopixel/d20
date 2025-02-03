@@ -1,7 +1,16 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://tgciucf2m12y"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://tgciucf2m12y"]
 
-[ext_resource type="Texture2D" uid="uid://bfiyu1n4ev6ju" path="res://assets/d20-blank.png" id="1_7nh50"]
+[ext_resource type="Texture2D" uid="uid://vk5r2807pe6q" path="res://assets/d20-blank.png" id="1_7nh50"]
 [ext_resource type="Script" path="res://dice/heavy_attack.gd" id="2_pme2i"]
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="3_k8skg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2koqa"]
+resource_local_to_scene = true
+shader = ExtResource("3_k8skg")
+shader_parameter/pivot = Vector2(0, 0)
+shader_parameter/amount = 0.0
+shader_parameter/quality = 4
+shader_parameter/marginDebug = false
 
 [resource]
 script = ExtResource("2_pme2i")
@@ -11,5 +20,6 @@ target = 1
 cost = 1
 num_faces = 20
 is_d20 = true
+shader = SubResource("ShaderMaterial_2koqa")
 tooltip_text = "Big boy D20. Attacks for roll"
 icon = ExtResource("1_7nh50")

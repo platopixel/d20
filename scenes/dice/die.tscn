@@ -1,50 +1,54 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0qf0rsddr7kl"]
+[gd_scene load_steps=13 format=3 uid="uid://c0qf0rsddr7kl"]
 
 [ext_resource type="Script" path="res://scenes/dice/die.gd" id="1_v0k3q"]
-[ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="1_yhqcx"]
-[ext_resource type="Shader" path="res://shaders/attack.gdshader" id="3_bogiw"]
-[ext_resource type="Texture2D" uid="uid://bpikbgov6r5yc" path="res://assets/d6-6.png" id="3_web68"]
+[ext_resource type="Texture2D" uid="uid://cs2bktwthl2yj" path="res://assets/d6-4.png" id="2_wg7no"]
 [ext_resource type="Script" path="res://scenes/dice/die_state_machine.gd" id="4_fy54y"]
+[ext_resource type="Texture2D" uid="uid://vk5r2807pe6q" path="res://assets/d20-blank.png" id="5_bxxc0"]
+[ext_resource type="Shader" path="res://shaders/heavy_attack.gdshader" id="5_df46h"]
 [ext_resource type="Script" path="res://scenes/dice/die_states/die_base_state.gd" id="5_rkj7l"]
 [ext_resource type="Script" path="res://scenes/dice/die_states/die_clicked_state.gd" id="6_7jj28"]
 [ext_resource type="Script" path="res://scenes/dice/die_states/die_dragging_state.gd" id="7_8h68l"]
 [ext_resource type="Script" path="res://scenes/dice/die_states/die_released_state.gd" id="8_2bye2"]
 
-[sub_resource type="Gradient" id="Gradient_1ajg8"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_31v5d"]
-gradient = SubResource("Gradient_1ajg8")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bnv4y"]
-shader = ExtResource("3_bogiw")
-shader_parameter/maxLineWidth = 10.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xgas"]
+shader = ExtResource("5_df46h")
+shader_parameter/maxLineWidth = 25.0
 shader_parameter/minLineWidth = 5.0
-shader_parameter/speed = 1.0
-shader_parameter/blockSize = 20.0
+shader_parameter/speed = 2.5
+shader_parameter/blockSize = 10.0
 shader_parameter/gradientResolution = 10
 shader_parameter/tolerance = 0.0
-shader_parameter/color = SubResource("GradientTexture1D_31v5d")
 
 [sub_resource type="LabelSettings" id="LabelSettings_agm8h"]
 font_color = Color(0.8, 0.909804, 0.980392, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ci871"]
-size = Vector2(75, 68)
+size = Vector2(100, 100)
 
 [node name="Die" type="Control"]
-custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 74.0
-offset_bottom = 66.0
-theme = ExtResource("1_yhqcx")
+offset_left = -51.0
+offset_top = -50.0
+offset_right = 49.0
+offset_bottom = 50.0
+pivot_offset = Vector2(50, 50)
+mouse_filter = 1
 script = ExtResource("1_v0k3q")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_bnv4y")
-scale = Vector2(0.35, 0.318)
-texture = ExtResource("3_web68")
-centered = false
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("2_wg7no")
+expand_mode = 1
+
+[node name="Sprite2D2" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_7xgas")
+layout_mode = 0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_bxxc0")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -53,10 +57,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -10.5
+offset_top = -10.5
+offset_right = 10.5
+offset_bottom = 10.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "20"
@@ -66,8 +70,7 @@ vertical_alignment = 1
 
 [node name="DebugColor" type="ColorRect" parent="."]
 visible = false
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -77,8 +80,7 @@ color = Color(0.126988, 0.556608, 0.271771, 1)
 
 [node name="DebugLabel" type="Label" parent="."]
 visible = false
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -92,7 +94,8 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
-position = Vector2(38.5, 35)
+visible = false
+position = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_ci871")
 
 [node name="DieStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

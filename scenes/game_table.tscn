@@ -88,12 +88,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -341.0
-offset_top = -152.0
-offset_right = 342.0
+offset_left = -342.0
+offset_top = -174.0
+offset_right = 341.0
+offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 30
+theme_override_constants/separation = 40
 alignment = 1
 script = ExtResource("2_cmgux")
 

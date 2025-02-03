@@ -9,10 +9,11 @@ signal reparent_requested(which_die: Die)
 
 @onready var debugColor: ColorRect = $DebugColor
 @onready var debugLabel: Label = $DebugLabel
+@onready var label: Label = $Label
 @onready var drop_point_detector: Area2D = $DropPointDetector
 @onready var die_state_machine: DieStateMachine = $DieStateMachine as DieStateMachine
 @onready var targets: Array[Node] = []
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: TextureRect = $Sprite2D
 
 var original_index := 0 # used to put the die back into the same index of the hand when cancelled
 var faces: Array[DIE_FACE] = []
@@ -59,8 +60,13 @@ func _set_die(value: DieModel) -> void:
 
 		faces.append(instance)
 
+	label.text = str(die.num_faces)
 	sprite_2d.texture = faces[die.num_faces - 1].texture # set default texture to highest die roll
 	sprite_2d.material = die.shader
+	if sprite_2d.texture:
+		var texture_size = sprite_2d.get_size() * sprite_2d.scale
+		# Update the Control node's minimum size
+		custom_minimum_size = texture_size
 
 
 func _set_playable(value: bool) -> void:
@@ -97,13 +103,23 @@ func play() -> void:
 		return
 
 	roll()
-	die.play(targets, player_stats, current_roll)
+	# die.play(targets, player_stats, current_roll)
 
 
 func roll() -> void:
-	current_roll = faces.pick_random()
-	$Label.text = str(current_roll.number)
-	sprite_2d.texture = current_roll.texture
+	var tween = create_tween().set_ease(Tween.EASE_OUT)
+	tween.tween_method(set_shader_value, 1.0, 0.0, 0.5)
+	tween.finished.connect(
+		func():
+			current_roll = faces.pick_random()
+			label.text = str(current_roll.number)
+			sprite_2d.texture = current_roll.texture
+			die.play(targets, player_stats, current_roll)
+	)
+
+
+func set_shader_value(value: float) -> void:
+	sprite_2d.material.set_shader_parameter("amount", value)
 
 
 func _on_drop_point_detector_area_entered(area: Area2D) -> void:
