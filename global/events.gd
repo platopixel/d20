@@ -1,16 +1,19 @@
 extends Node
 
-# Card-related events
+# Dice-related events
 signal die_drag_started(die: Die)
 signal die_drag_ended(die: Die)
 signal die_aim_started(die: Die)
 signal die_aim_ended(die: Die)
+signal die_dropped(die: Die)
 signal die_played(die: DieModel)
+signal dice_rolled
 signal die_tooltip_requested(text: String)
 signal tooltip_hide_requested
 
 # Player-related events
 signal player_hand_drawn
+signal start_roll
 signal player_hand_discarded
 signal player_turn_ended
 signal player_hit

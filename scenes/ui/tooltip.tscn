@@ -1,12 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcn4hskvgsfw7"]
+[gd_scene load_steps=8 format=3 uid="uid://dcn4hskvgsfw7"]
 
 [ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="1_5w7cy"]
 [ext_resource type="Script" path="res://scenes/ui/tooltip.gd" id="2_m1x4p"]
 [ext_resource type="Texture2D" uid="uid://6068gg2s2ur1" path="res://assets/interface-panel-corners.png" id="3_2i5lq"]
+[ext_resource type="Shader" path="res://shaders/crt.gdshader" id="3_lueyh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l0hqb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3wkr8"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qejn1"]
+shader = ExtResource("3_lueyh")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.119
+shader_parameter/resolution = Vector2(400, 300)
+shader_parameter/pixelate = true
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.101
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.2
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.243
+
 [node name="Tooltip" type="PanelContainer"]
+material = SubResource("ShaderMaterial_l0hqb")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -19,6 +47,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_3wkr8")
 script = ExtResource("2_m1x4p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qejn1")
 layout_mode = 2
 texture = ExtResource("3_2i5lq")
 expand_mode = 1

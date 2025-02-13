@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cryaldygx48fa"]
+[gd_scene load_steps=25 format=3 uid="uid://cryaldygx48fa"]
 
 [ext_resource type="Script" path="res://scenes/game_table.gd" id="1_ue63g"]
 [ext_resource type="PackedScene" uid="uid://crlsfq4k8cwld" path="res://enemies/enemy.tscn" id="2_4f4xb"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dr2o56k61bc2t" path="res://scenes/ui/energy_ui.tscn" id="8_g1wg8"]
 [ext_resource type="Resource" uid="uid://bo2k5hhiu37r4" path="res://characters/player/player.tres" id="8_w6sov"]
 [ext_resource type="PackedScene" uid="uid://dcn4hskvgsfw7" path="res://scenes/ui/tooltip.tscn" id="10_s1a8w"]
+[ext_resource type="PackedScene" uid="uid://ep5wih47yayy" path="res://scenes/dice/dice_roller.tscn" id="11_on3el"]
 [ext_resource type="PackedScene" uid="uid://dd4vhrh5g6fdr" path="res://scenes/ui/health_ui.tscn" id="12_12l0y"]
 [ext_resource type="Theme" uid="uid://d3nt4vpn2j01h" path="res://main_theme.tres" id="13_mcw8m"]
 [ext_resource type="Script" path="res://scenes/ui/die_tooltip.gd" id="13_qyf4o"]
@@ -78,6 +79,8 @@ stats = ExtResource("8_w6sov")
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
 script = ExtResource("7_t6lt2")
 hand = NodePath("../BattleUI/Hand")
+
+[node name="DiceRoller" parent="." instance=ExtResource("11_on3el")]
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 script = ExtResource("6_rg7ft")

@@ -10,10 +10,12 @@ func enter() -> void:
 
 	played = false
 
+	# check if die is released in the play area
 	if not die.targets.is_empty():
-		die.play()
+		Events.die_dropped.emit(die)
+		# die.play()
 		played = true
-		Events.tooltip_hide_requested.emit()
+		# Events.tooltip_hide_requested.emit()
 
 
 func on_input(_event: InputEvent) -> void:

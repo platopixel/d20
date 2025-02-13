@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ep5wih47yayy"]
+
+[ext_resource type="Script" path="res://scenes/dice/dice_roller.gd" id="1_vyi6a"]
+
+[node name="DiceRoller" type="Node"]
+script = ExtResource("1_vyi6a")
