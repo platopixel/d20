@@ -7,10 +7,11 @@ const float ROOT_TWO = 1.41421356237;
 
 void vertex(){
 	vec2 vertex = TEXTURE_PIXEL_SIZE * VERTEX;
-	vertex = vertex * (2.0 * length(pivot) + ROOT_TWO) + pivot;
+	// commented out these lines because they were adding a huge margin to the texture
+	// vertex = vertex * (2.0 * length(pivot) + ROOT_TWO) + pivot;
 	VERTEX = vertex / TEXTURE_PIXEL_SIZE;
-VERTEX += pivot;
-	UV = (UV - 0.5) * (2.0 * length(pivot) + ROOT_TWO) + pivot + 0.5;
+	VERTEX += pivot;
+	// UV = (UV - 0.5) * (2.0 * length(pivot) + ROOT_TWO) + pivot + 0.5;
 }
 
 float insideUnitSquare(vec2 v) {
