@@ -18,7 +18,16 @@ func add_die(die: Die) -> void:
 func roll() -> void:
 	all_dice_played = false
 	for i in range(dice.size()):
-		dice[i].play()
+		var die := dice[i]
+		# move dice to random positions in center of screen
+		randomize()
+		var x := randf_range(die.global_position.x - 100, die.global_position.x - 400)
+		var y := randf_range(die.global_position.y - 100, die.global_position.y + 150)
+		var end := Vector2(x, y)
+		var tween = create_tween().set_trans(Tween.TRANS_SPRING)
+		tween.tween_property(die, "global_position", end, 0.7)
+		die.visible = true
+		die.play()
 
 
 func _on_die_played(die: DieModel) -> void:

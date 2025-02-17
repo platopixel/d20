@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cryaldygx48fa"]
+[gd_scene load_steps=26 format=3 uid="uid://cryaldygx48fa"]
 
 [ext_resource type="Script" path="res://scenes/game_table.gd" id="1_ue63g"]
 [ext_resource type="PackedScene" uid="uid://crlsfq4k8cwld" path="res://enemies/enemy.tscn" id="2_4f4xb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://enemies/enemy_handler.gd" id="4_bvnc7"]
 [ext_resource type="Resource" uid="uid://c85e051l1578x" path="res://enemies/spy/spy_enemy.tres" id="5_6fbiy"]
 [ext_resource type="Texture2D" uid="uid://0ep870o4iql6" path="res://assets/ui-grid.png" id="5_ads4c"]
+[ext_resource type="Texture2D" uid="uid://cc5f1havufbwq" path="res://assets/dicecup.png" id="6_pgnjs"]
 [ext_resource type="Script" path="res://scenes/ui/battle_ui.gd" id="6_rg7ft"]
 [ext_resource type="Script" path="res://scenes/player_handler.gd" id="7_t6lt2"]
 [ext_resource type="PackedScene" uid="uid://7h0jvdjn6qic" path="res://scenes/player.tscn" id="7_txw2l"]
@@ -26,7 +27,7 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vbntx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q263g"]
-size = Vector2(1280, 475)
+size = Vector2(265, 175)
 
 [node name="GameTable" type="Node2D"]
 material = SubResource("CanvasItemMaterial_vbntx")
@@ -55,16 +56,8 @@ offset_bottom = 674.0
 texture = ExtResource("5_ads4c")
 expand_mode = 2
 
-[node name="DieDropArea" type="Area2D" parent="."]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DieDropArea"]
-position = Vector2(640, 237)
-shape = SubResource("RectangleShape2D_q263g")
-debug_color = Color(0, 0.6, 0.701961, 0.176471)
-
 [node name="EnemyHandler" type="Node2D" parent="."]
-position = Vector2(434, 3.8147e-06)
+position = Vector2(320, -40)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("4_bvnc7")
 
@@ -84,6 +77,24 @@ hand = NodePath("../BattleUI/Hand")
 
 [node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 script = ExtResource("6_rg7ft")
+
+[node name="DieDropArea" type="Area2D" parent="BattleUI"]
+unique_name_in_owner = true
+position = Vector2(51, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleUI/DieDropArea"]
+position = Vector2(783.5, 400.5)
+shape = SubResource("RectangleShape2D_q263g")
+debug_color = Color(0, 0.6, 0.701961, 0.176471)
+
+[node name="TextureRect" type="TextureRect" parent="BattleUI/DieDropArea"]
+offset_left = 619.0
+offset_top = 259.0
+offset_right = 1007.0
+offset_bottom = 647.0
+texture = ExtResource("6_pgnjs")
+expand_mode = 2
 
 [node name="Hand" type="HBoxContainer" parent="BattleUI"]
 anchors_preset = 7
@@ -109,10 +120,10 @@ offset_bottom = 468.0
 script = ExtResource("13_qyf4o")
 
 [node name="EnemyTooltip" parent="BattleUI" instance=ExtResource("10_s1a8w")]
-offset_left = 272.0
+offset_left = 311.0
 offset_top = 22.0
-offset_right = 617.0
-offset_bottom = 422.0
+offset_right = 633.0
+offset_bottom = 429.0
 script = ExtResource("14_q47i1")
 
 [node name="HealthUI" parent="BattleUI" instance=ExtResource("12_12l0y")]

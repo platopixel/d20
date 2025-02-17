@@ -3,6 +3,7 @@ uniform vec2 pivot = vec2(0.0);
 uniform float amount = 0.0;
 uniform int quality = 4;
 uniform bool marginDebug = false;
+uniform vec4 color: source_color;
 const float ROOT_TWO = 1.41421356237;
 
 void vertex(){
@@ -32,7 +33,10 @@ vec2 rotate(vec2 uv, vec2 p, float angle)
 void fragment(){
 	float inSquare = insideUnitSquare(UV);
 	float numSamples = inSquare;
-	COLOR = texture(TEXTURE, UV) * inSquare;
+	vec4 texture_color = texture(TEXTURE, UV);
+	vec3 blended_rgb = color.rgb * color.a + texture_color.rgb * (1.0 - color.a);
+    COLOR = vec4(blended_rgb, texture_color.a) * inSquare;
+	// COLOR = texture(TEXTURE, UV) * inSquare;
 	float stepSize = amount/(float(quality));
 	vec2 uv;
 	for(int i = 1; i <= quality; i++){
@@ -46,6 +50,10 @@ void fragment(){
 		numSamples += inSquare;
 		COLOR += texture(TEXTURE, uv) * inSquare;
 	}
+
+	//vec4 result = color + texture_color;
+	//COLOR = result;
+	
 	COLOR.rgb /= numSamples;
 	COLOR.a /= float(quality)*2.0 + 1.0;
 	if(marginDebug) COLOR += 0.1;

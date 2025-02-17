@@ -15,6 +15,7 @@ shader_parameter/pivot = Vector2(0, 0)
 shader_parameter/amount = 0.0
 shader_parameter/quality = 4
 shader_parameter/marginDebug = true
+shader_parameter/color = Color(0.8, 0, 0, 0.823529)
 
 [sub_resource type="LabelSettings" id="LabelSettings_agm8h"]
 font_color = Color(0.8, 0.909804, 0.980392, 1)
@@ -113,6 +114,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+visible = false
 position = Vector2(37.5, 37.5)
 shape = SubResource("RectangleShape2D_ci871")
 

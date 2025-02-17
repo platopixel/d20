@@ -11,6 +11,7 @@ shader_parameter/pivot = Vector2(0, 0)
 shader_parameter/amount = 0.0
 shader_parameter/quality = 4
 shader_parameter/marginDebug = false
+shader_parameter/color = null
 
 [resource]
 script = ExtResource("2_pme2i")

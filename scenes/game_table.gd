@@ -7,6 +7,7 @@ extends Node2D
 @onready var enemy_handler: EnemyHandler = $EnemyHandler as EnemyHandler
 @onready var player: Player = $Player
 @onready var dice_roller: DiceRoller = $DiceRoller
+@onready var die_drop_area: Area2D = %DieDropArea
 
 
 func _ready() -> void:
@@ -21,6 +22,7 @@ func _ready() -> void:
 	Events.start_roll.connect(dice_roller.roll)
 	Events.player_hand_discarded.connect(enemy_handler.start_turn)
 	Events.player_died.connect(_on_player_died)
+	Events.die_dropped.connect(_on_die_dropped)
 
 	start_battle(new_stats)
 
@@ -28,6 +30,17 @@ func _ready() -> void:
 func start_battle(stats: PlayerStats) -> void:
 	enemy_handler.reset_enemy_actions()
 	player_handler.start_battle(stats)
+
+
+func _on_die_dropped(die: Die) -> void:
+	var tween := create_tween().set_trans(Tween.TRANS_QUAD)
+	var start := die_drop_area.global_position
+	var end := die_drop_area.global_position + Vector2.DOWN * 32
+	die.visible = false
+
+	tween.tween_property(die_drop_area, "global_position", end, 0.05)
+	tween.tween_interval(0.01)
+	tween.tween_property(die_drop_area, "global_position", start, 0.05)
 
 
 func _on_enemy_turn_ended() -> void:
